@@ -33,8 +33,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        Toast.makeText(this,"먹고싶지?꺄르르",Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, ResultActivity.class);
-        startActivity(intent);
+
+        String name = mName.getText().toString();  //getText는 return타입이 editable이라서 toString() 해줘야댐.
+
+        //명시적
+        if(name.equals("")){
+            Toast.makeText(this, "이름을 입력해주세오~", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, name + ", 먹고싶지?꺄르르", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, ResultActivity.class);
+            startActivity(intent);
+            //여기서 값을 읽어들여와야 함. -> 눌렀을 때 가져와야 하니까
+        }
+        //밑에 방법도 사용할 수 있다.
+
+
+        /*try{
+            Toast.makeText(this, name + ", 먹고싶지?꺄르르", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, ResultActivity.class);
+            startActivity(intent);
+        }catch (NullPointerException e){
+            Toast.makeText(this, "이름을 입력해주세오~", Toast.LENGTH_LONG).show();
+        }catch (Exception e) {
+            Toast.makeText(this, "이름을 입력해주세오~", Toast.LENGTH_LONG).show();
+        }*/
+
     }
 }
