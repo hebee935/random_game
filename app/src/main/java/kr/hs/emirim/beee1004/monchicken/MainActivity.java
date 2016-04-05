@@ -40,8 +40,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(name.equals("")){
             Toast.makeText(this, "이름을 입력해주세오~", Toast.LENGTH_SHORT).show();
         }else {
-            Toast.makeText(this, name + ", 먹고싶지?꺄르르", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"넘어갑니다~", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, ResultActivity.class);
+            intent.putExtra("name",name);
+            intent.putExtra("age",18);
             startActivity(intent);
             //여기서 값을 읽어들여와야 함. -> 눌렀을 때 가져와야 하니까
         }
@@ -59,4 +61,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }*/
 
     }
+
+
 }
