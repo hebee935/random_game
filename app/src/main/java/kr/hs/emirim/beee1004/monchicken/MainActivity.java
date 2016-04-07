@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mName = (EditText)findViewById(R.id.name);
         mBtnShowTheChicken = (Button)findViewById(R.id.btn_showme_the_chicken);
         mBtnShowTheChicken.setOnClickListener(this);  //클릭했다 들리면 이벤트
+
     }
 
 
@@ -35,13 +37,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
 
         String name = mName.getText().toString();  //getText는 return타입이 editable이라서 toString() 해줘야댐.
-
+        Intent intent = new Intent(this, ResultActivity.class);
         //명시적
         if(name.equals("")){
             Toast.makeText(this, "이름을 입력해주세오~", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(this,"넘어갑니다~", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, ResultActivity.class);
+
             intent.putExtra("name",name);
             intent.putExtra("age",18);
             startActivity(intent);
