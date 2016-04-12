@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
         mName.setText("");  //사용자가 백버튼을 눌렀을 경우에 다시 남아있는 것을 방지하기 위해 공백으로 채움
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
 
@@ -44,9 +45,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else {
             Toast.makeText(this,"넘어갑니다~", Toast.LENGTH_SHORT).show();
             intent.putExtra("name", name);
-            intent.putExtra("age",18);
+            intent.putExtra("age", 18);
             startActivity(intent);
-            overridePendingTransition(0, R.anim.zoom_exit);
+            overridePendingTransition( R.anim.slide_in_right,R.anim.slide_out_left);
             //여기서 값을 읽어들여와야 함. -> 눌렀을 때 가져와야 하니까
         }
         //밑에 방법도 사용할 수 있다.
