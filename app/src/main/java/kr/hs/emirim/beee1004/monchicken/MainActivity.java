@@ -43,10 +43,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this, "이름을 입력해주세오~", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(this,"넘어갑니다~", Toast.LENGTH_SHORT).show();
-
-            intent.putExtra("name",name);
+            intent.putExtra("name", name);
             intent.putExtra("age",18);
             startActivity(intent);
+            overridePendingTransition(0, R.anim.zoom_exit);
             //여기서 값을 읽어들여와야 함. -> 눌렀을 때 가져와야 하니까
         }
         //밑에 방법도 사용할 수 있다.
