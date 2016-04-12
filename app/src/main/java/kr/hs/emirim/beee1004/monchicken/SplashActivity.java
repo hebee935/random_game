@@ -22,8 +22,8 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                startActivity(intent);
-
+                startActivity(intent); //activity의 메서드
+                overridePendingTransition(0,R.anim.zoom_exit); //activity의 메서드
                 finish();
             }
         },3000);
